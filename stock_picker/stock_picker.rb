@@ -2,8 +2,8 @@ def stock_picker_refact(days)
   profit = 0
   buy_sell_day = [0, 0]
 
-  days.each_with_index do |buy, index|
-    days[index + 1..-1].map do |sell|
+  days.each do |buy, index|
+    days[1..-1].map do |sell|
       next unless sell - buy > profit
       profit = sell - buy
       buy_sell_day = "buy day: #{days.index(buy) + 1} price = #{buy} \nsell day: #{days.index(sell) + 1} price = #{sell}\nprofit = #{profit}"
